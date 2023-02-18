@@ -80,13 +80,14 @@ public class C02_PreIncrement_PostIncrement {
 
         int c = 30;
 
-        System.out.println(++c); //
-        System.out.println(a++);
+        System.out.println(++c); // 31
+        System.out.println(a++); // 20
+        System.out.println(a);  // 21
         c= b++;
-        System.out.println(c);
-        System.out.println(--a);
-        System.out.println(--a);
-        System.out.println(a);
+        System.out.println(c); // 10
+        System.out.println(--a); // 20
+        System.out.println(--a); // 19
+        System.out.println(a); // 19
 
 
 

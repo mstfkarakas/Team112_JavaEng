@@ -14,6 +14,5 @@ public class C08_length {
         System.out.println(str2.charAt(str2.length()-1));
 
 
-
     }
 }

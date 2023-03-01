@@ -11,7 +11,7 @@ public class C09_NestedLoops {
 
 
          */
-        int number = 3;
+        int number = 10;
         int k = 1;
 
         for (int j = 1; j <= number; j++) {

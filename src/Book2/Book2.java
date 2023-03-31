@@ -55,4 +55,15 @@ public class Book2 {
     public void setBook_s_Price(double book_s_Price) {
         this.book_s_Price = book_s_Price;
     }
+
+    @Override
+    public String toString() {
+        return "Book2{" +
+                "book_s_ID=" + book_s_ID +
+                ", book_s_Name='" + book_s_Name + '\'' +
+                ", author_s_Name='" + author_s_Name + '\'' +
+                ", publication_s_Year=" + publication_s_Year +
+                ", book_s_Price=" + book_s_Price +
+                '}';
+    }
 }

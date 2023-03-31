@@ -1,8 +1,21 @@
 package day31_inheritance;
+import day30_inheritance.GParent;
+public class AChild extends GParent {
 
-public class AChild {
+    String childStr;
+    AChild(){
+        // Her class'in parametresiz constructor'inin ilk satirinda gorunmeyen Super() constructor call calisir.
+        System.out.println("Day 31 Child class costructor calisti");
+    }
 
+    public static void main(String[] args) {
+     //   System.out.println(childStr);  childStr static olmadigindan ulasamayiz, obje gerekir.
+     //   System.out.println(sayiParent); static degil
+     //   System.out.println(sayiGrandparent); static degil
 
+        AChild objeChild = new AChild();
+
+    }
 
 
 
@@ -10,6 +23,7 @@ public class AChild {
             Java'da inheritance kullanirken
             child class'daki obje parent class(lar)'daki tum ozelliklere sahip olur
             bunu saglayan Java mekanizmasi super() constructor call'dur.
+
             Extends keyword kullanan bir class'da
             olusturulan her bir constructor'in ilk satirinda
             biz gormesek bile super() vardir

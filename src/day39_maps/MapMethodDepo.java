@@ -42,4 +42,14 @@ public class MapMethodDepo {
             }
         }
     }
+
+    public static Map<Integer, String> topluSubeDegistirme(Map<Integer, String> okulMap, String eskiSube, String yeniSube) {
+
+
+
+
+
+
+        return okulMap;
+    }
 }

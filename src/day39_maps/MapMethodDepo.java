@@ -110,4 +110,23 @@ public class MapMethodDepo {
         // 7- map'in yeni halini return edelim
         return okulMap;
     }
+
+    public static Map<Integer, String> numaraIleSoyisimDegistir(Map<Integer, String> okulMap, int okulNo, String yeniSoyisim) {
+
+        String istenenOgrenciValue = okulMap.get(okulNo);   // Veli-Can-10-M-TM
+        String[] valueArr = okulMap.get(okulNo).split("-"); // [Veli, Can, 10, M, TM]
+
+        valueArr[1] = yeniSoyisim;  // [Veli, Han, 10, M, TM] if yeniSoyisim is Han.
+
+        String yenivalue = "";
+        for (int i = 0; i < valueArr.length-1; i++) {
+            yenivalue += valueArr[i] + "-";
+        }
+        yenivalue += valueArr[valueArr.length-1];
+
+        okulMap.put(okulNo,yenivalue);
+
+
+        return okulMap;
+    }
 }

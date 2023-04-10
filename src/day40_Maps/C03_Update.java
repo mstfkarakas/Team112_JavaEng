@@ -12,8 +12,11 @@ public class C03_Update {
         okulMap = MapMethodDepo.numaraIleSoyisimDegistir(okulMap, 102, "Han");
 
         System.out.println(okulMap);  // Soyisim degismeden onceki hali
-        MapMethodDepo.numaraIleSoyisimDegistir(okulMap,102, "Top");
+        MapMethodDepo.numaraIleSoyisimDegistir(okulMap,102, "Han");
         System.out.println(okulMap);  // Soyisim degistikten sonraki hali
+
+        MapMethodDepo.numaraIleSoyisimDegistir(okulMap, 105, "Koc");
+        System.out.println(okulMap);
 
     }
 }

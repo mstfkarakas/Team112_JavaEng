@@ -30,12 +30,12 @@ public class MapMethodDepo {
 
         System.out.println("========Sube Listesi=======");
         System.out.println("# Sinif Isim Soyisim");
-        int siraNo=1;
+        int siraNo = 1;
         for (String eachValue : valueCollection) { // example: Ali-Cem-10-H-MF
             String[] valueArr = eachValue.split("-"); // [Ali, Cem, 10, H, MF]
 
-        // 3- array'den sube'yi kontrol edip
-        //    eger istenen sube ise ogrencinin sinif isim ve soyismini yazdiralim
+            // 3- array'den sube'yi kontrol edip
+            //    eger istenen sube ise ogrencinin sinif isim ve soyismini yazdiralim
 
             if (valueArr[3].equalsIgnoreCase(istenenSube)) {
                 System.out.println(siraNo + " - " + valueArr[2] + ", " + valueArr[0] + ", " + valueArr[1]);
@@ -62,13 +62,13 @@ public class MapMethodDepo {
             // Ali-Cem-10-N-MF
 
             String yeniValue = "";
-            for (int i = 0; i < valueArr.length-1; i++) {
+            for (int i = 0; i < valueArr.length - 1; i++) {
                 yeniValue += valueArr[i] + "-";
             }
-            yeniValue += valueArr[valueArr.length-1];
+            yeniValue += valueArr[valueArr.length - 1];
 
             // yeniValue'lerimizi yeniden map'e ekleyelim
-            okulMap.put(eachKey,yeniValue);
+            okulMap.put(eachKey, yeniValue);
         }
 
         // 5- okulMap'inin son halini return edelim
@@ -97,13 +97,14 @@ public class MapMethodDepo {
             // 5- array'in yeni halini String olarak birlestirip yeniValue elde edelim
 
             String yeniValue = "";
-            for (int i = 0; i < valueArr.length-1; i++) {
+            for (int i = 0; i < valueArr.length - 1; i++) {
                 yeniValue += valueArr[i] + "-";
-            } yeniValue += valueArr[valueArr.length-1];
+            }
+            yeniValue += valueArr[valueArr.length - 1];
 
 
             // 6- her bir key ve yeniValue'yu map'e ekleyerek map'i update edelim
-            okulMap.put(eachKey,yeniValue);
+            okulMap.put(eachKey, yeniValue);
 
         }
 
@@ -119,14 +120,71 @@ public class MapMethodDepo {
         valueArr[1] = yeniSoyisim;  // [Veli, Han, 10, M, TM] if yeniSoyisim is Han.
 
         String yenivalue = "";
-        for (int i = 0; i < valueArr.length-1; i++) {
+        for (int i = 0; i < valueArr.length - 1; i++) {
             yenivalue += valueArr[i] + "-";
         }
-        yenivalue += valueArr[valueArr.length-1];
+        yenivalue += valueArr[valueArr.length - 1];
 
-        okulMap.put(okulNo,yenivalue);
+        okulMap.put(okulNo, yenivalue);
+
+        return okulMap;
+    }
+
+    public static void sinifaGoreListeYazdir(Map<Integer, String> okulMap, int istenenSinif) {
+
+        // 1- okulmap'deki entry'leri kaydedelim
+        Set<Map.Entry<Integer, String>> okulEntrySeti = okulMap.entrySet();
+
+        // 2- Her bir entry'i ele alip, istenen islemi yaptiralim
+
+        for (Map.Entry<Integer, String> eachEntry : okulEntrySeti) {
+
+            //    System.out.println(eachEntry);
+            //    101=Ali-Cem-10-H-MF
+            //    102=Veli-Can-10-M-TM
+            //    103=Ali-Can-11-M-Soz
+            //    etc...
 
 
+            // isim, soyisim, bolumlerini bir String'e atayalim:
+
+            String value = eachEntry.getValue(); // Ali-Cem-10-H-MF
+            String[] valueArr = value.split("-"); // [Ali, Can, 10, M, TM]
+
+            if (valueArr[2].equals(istenenSinif + "")) {
+
+                // no'yu yazdiralim:
+                System.out.print(eachEntry.getKey() + " "); // herbir entry'deki key degerlerini yanyana yazdirir. // 101 102 103 etc..
+
+                // isim, soyisim, bolum
+                System.out.print(valueArr[0] + " " + valueArr[1] + " " + valueArr[4]);
+                System.out.println("");
+
+            }
+        }
+    }
+
+    public static Map<Integer, String> soyisimleriBuyukYap(Map<Integer, String> okulMap) {
+
+        // Entry'ler ile cozelim:
+
+        Set<Map.Entry<Integer, String>> okulEntrySeti = okulMap.entrySet();
+        // herbir Entry'i elden gecirip, sadece soyisimleri buyuk harf yapalim. for each loop gerekir
+
+        for (Map.Entry<Integer, String> eachEntry : okulEntrySeti) {
+
+            // her bir entry'deki value'yu alalim
+            String value = eachEntry.getValue(); // Ali-Cem-10-H-MF
+            // value'yu array'e cevirelim
+            String[] valueArr = value.split("-"); // [Ali, Can, 10, M, TM]
+            // array icinde soyismi buyuk harf yapalim
+
+            valueArr[1] = valueArr[1].toUpperCase(); // [Ali, CAN, 10, M, TM]
+
+            eachEntry.setValue(valueArr[0] + " " + valueArr[1] + " " +valueArr[2] + " " +valueArr[3] + " " +valueArr[4] + " ");
+
+
+        }
         return okulMap;
     }
 }

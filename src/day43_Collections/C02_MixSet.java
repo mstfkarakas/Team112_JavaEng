@@ -5,7 +5,7 @@ import java.util.*;
 public class C02_MixSet {
     public static void main(String[] args) {
 
-        Set<Object> mixSet = new HashSet(); // Object turunde olusturduk, her tur data koyucaz
+        Set<Object> mixSet = new HashSet<>(); // Object turunde olusturduk, her tur data koyucaz
                                             // ama bir kutuya bir suru esya koymak gibi karisik olacak.
 
         mixSet.add(12);
